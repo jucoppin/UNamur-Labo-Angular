@@ -1,0 +1,26 @@
+<button [routerLink]="['/managers/create']">Créer un gestionnaire</button>
+
+<table *ngIf="managers">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Actif</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let manager of managers">
+    <td>{{manager.id}}</td>
+    <td>{{manager.lastName}}</td>
+    <td>{{manager.firstName}}</td>
+    <td><input type="checkbox" disabled [checked]="manager.isActive"></td>
+    <td>
+      <button [routerLink]="['/managers', manager.id]">Editer</button>
+      <button (click)="delete(manager.id)">Supprimer</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

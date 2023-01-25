@@ -1,0 +1,19 @@
+<h1>{{entity ? 'Edition du gestionnaire' : 'Création d\'un gestionnaire' }}</h1>
+
+<form *ngIf="form" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="row">
+    Prénom :
+    <input type="text" formControlName="firstName" autofocus>
+  </div>
+  <div class="row">
+    Nom :
+    <input type="text" formControlName="lastName">
+  </div>
+  <div class="row">
+    Actif :
+    <input type="checkbox" formControlName="isActive">
+  </div>
+  <div class="row">
+    <button type="submit">Sauver</button>
+  </div>
+</form>
