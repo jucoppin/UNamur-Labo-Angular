@@ -7,14 +7,15 @@ Vérifier que l'application se lance
 Créer votre premier module
     Architecture module 
         mkdir components pages services models interfaces
-    Page de listing
+    Page de listing (resource-list => manager-list)
         Call HTTP => Service ? 
         Une fois les données récupérées, se concentrer sur la vue 
-    Page de création
+    Page de création (resource-create ? resource ? resource-edit ? )
         Call HTTP => Service ? 
         Une fois le formulaire créée, se concentrer la vue (FormGroup)
     => Page d'édition (N'oubliez pas de récupérer l'ID dans l'URL) => ActivatedRoute
     (Delete ? Visuel ?)
+    Page de visualisation ? (resource-view ? )
 
 constructor services
     httpClient: HttpClient => Permet de faire les call APIS
