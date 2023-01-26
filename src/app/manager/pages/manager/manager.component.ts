@@ -3,6 +3,8 @@ import { ManagerService } from "../../services/manager.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Manager } from "../../dto/manager.dto";
+import { Observable, tap } from "rxjs";
+import * as os from "os";
 
 @Component({
   selector: 'app-manager',
@@ -44,7 +46,15 @@ export class ManagerComponent implements OnInit {
 
     const data = this.form.value;
 
-    (this.entity ? this.service.patch(this.entity.id, data) : this.service.create(data)).subscribe(() => {
+    let observable: Observable<Manager>;
+
+    if (this.entity) {
+      observable = this.service.patch(this.entity.id, data);
+    } else {
+      observable = this.service.create(data);
+    }
+
+    observable.subscribe(() => {
       this.router.navigate(['/managers']).then();
     });
   }

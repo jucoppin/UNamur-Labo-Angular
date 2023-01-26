@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagerService } from "../../services/manager.service";
 import { Manager } from "../../dto/manager.dto";
+import { logMessages } from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
 
 @Component({
   selector: 'app-manager-list',
@@ -16,6 +17,12 @@ export class ManagerListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.service.getTest().subscribe({
+    //   next: x => console.log('OK', x),
+    //   error: e => console.warn(e),
+    //   complete: () => console.log("DONE")
+    // });
+    this.service.getManagers().subscribe();
     this._refreshManagers();
   }
 

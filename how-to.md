@@ -65,3 +65,7 @@ Routing
   Il ne faut pas oublier de charger le fichier app-routing.module dans les imports du app.module
   De plus, il faut importer les différents modules fait à la main pour s'assurer du bon
     chargement des composants et autres éléments déclarés
+
+
+AppModule
+  Dans imports, ajouter le HttpClientModule
