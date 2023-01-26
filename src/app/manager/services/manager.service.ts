@@ -3,9 +3,10 @@ import { HttpClient } from "@angular/common/http";
 import { Manager } from "../dto/manager.dto";
 import { Injectable } from "@angular/core";
 import { Observable, tap } from "rxjs";
+import { IManagerService } from "../interfaces/manager-service.interface";
 
 @Injectable()
-export class ManagerService extends APIClient<Manager> {
+export class ManagerService extends APIClient<Manager> implements IManagerService{
   constructor(http: HttpClient) {
     super(http, 'managers');
   }

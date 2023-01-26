@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ManagerService } from "../../services/manager.service";
 import { Manager } from "../../dto/manager.dto";
 import { logMessages } from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
+import { ManagerMockService } from "../../services/manager-mock.service";
+import { IManagerService } from "../../interfaces/manager-service.interface";
 
 @Component({
   selector: 'app-manager-list',
@@ -13,6 +15,9 @@ export class ManagerListComponent implements OnInit {
 
   constructor(
     private readonly service: ManagerService,
+    private readonly managerMockService: ManagerMockService,
+    @Inject('IManagerService')
+    private readonly globalManagerService: IManagerService,
   ) {
   }
 
@@ -22,7 +27,7 @@ export class ManagerListComponent implements OnInit {
     //   error: e => console.warn(e),
     //   complete: () => console.log("DONE")
     // });
-    this.service.getManagers().subscribe();
+    // this.service.getManagers().subscribe();
     this._refreshManagers();
   }
 
@@ -35,7 +40,9 @@ export class ManagerListComponent implements OnInit {
   }
 
   private _refreshManagers(): void {
-    this.service.getAll().subscribe(s => {
+    // this.managerMockService.getAll().subscribe(s => {
+    // this.service.getAll().subscribe(s => {
+    this.globalManagerService.getAll().subscribe(s => {
       this.managers = s;
     });
   }

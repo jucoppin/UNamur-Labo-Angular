@@ -6,6 +6,7 @@ import { ManagerListComponent } from './pages/manager-list/manager-list.componen
 import { ManagerComponent } from './pages/manager/manager.component';
 import { ManagerService } from "./services/manager.service";
 import { ReactiveFormsModule } from "@angular/forms";
+import { ManagerMockService } from "./services/manager-mock.service";
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from "@angular/forms";
   ],
   providers: [
     ManagerService,
+    ManagerMockService,
   ],
 })
 export class ManagerModule {

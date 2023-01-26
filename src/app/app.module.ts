@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from "./shared/shared.module";
+import { ManagerMockService } from "./manager/services/manager-mock.service";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,12 @@ import { SharedModule } from "./shared/shared.module";
     //   },
     // }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'IManagerService',
+      useClass: ManagerMockService
+    }
+  ],
   exports: [],
   bootstrap: [AppComponent]
 })
