@@ -43,3 +43,25 @@ pages de création / édition
             this.form = this.fb.group({
                 firstName: [null, [Validators.required]],
             })
+
+
+Routing
+  Le routing se fait dans le app-routing.module.ts
+  Ce fichier contient une variable routes qui est l'ensemble des routes applicatives
+  const routes = [
+  ]
+
+  Dans les cas standards, une route est composée des propriétés suivantes :
+    - path
+    - children ou component
+  
+  Si path et children, alors le path est le préfix des routes qui seront définies dans children
+  Children est lui même un tableau de routes qui répond aux règles ici présentes
+  
+  Si path et component, alors le chemin réel est "le path du parent / le path de l'enfant"
+  Le component est la classe <Resource>Component qui sera utilisée pour faire le rendu visuel
+    lorsque l'URL en question sera utilisée
+
+  Il ne faut pas oublier de charger le fichier app-routing.module dans les imports du app.module
+  De plus, il faut importer les différents modules fait à la main pour s'assurer du bon
+    chargement des composants et autres éléments déclarés
