@@ -7,7 +7,7 @@ Vérifier que l'application se lance
 Créer votre premier module
     Architecture module 
         mkdir components pages services models interfaces
-    Page de listing (resource-list => manager-list)
+    Page de listing (<resource>-list => manager-list)
         Call HTTP => Service ? 
         Une fois les données récupérées, se concentrer sur la vue 
     Page de création (resource-create ? resource ? resource-edit ? )
@@ -27,6 +27,12 @@ constructor pages
     activatedRoute => L'URL actuelle (this.activatedRoute.snapshot) 
         .paramMap => Paramètres de l'URL (:XX)
         .queryMap => Query params ?a=b&c=d
+
+pages de listing
+    constructor => Permet de récupérer les services injectables
+    ngOnInit => Récupérer les données de l'API
+        - Call via le service 
+        this.managerService.getAll().subscribe(resultat => this.managers = resultat)
 
 pages de création / édition
     submit() => Réagir au submit du formulaire (nbSubmit), permet de valider, permet d'envoyer à l'API
