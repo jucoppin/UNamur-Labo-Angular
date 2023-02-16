@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from "./shared/shared.module";
 import { ManagerMockService } from "./manager/services/manager-mock.service";
+import { ManagerService } from "./manager/services/manager.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { ManagerMockService } from "./manager/services/manager-mock.service";
   providers: [
     {
       provide: 'IManagerService',
-      useClass: ManagerMockService
+      useClass: ManagerService
     }
   ],
   exports: [],

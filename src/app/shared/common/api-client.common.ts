@@ -78,7 +78,14 @@ export abstract class APIClient<TEntity = any> {
     return this.http.patch<TResult>(this.getResourceURL(id), data);
   }
 
-  delete(id: number): Observable<void> {
-    return this.http.delete<void>(this.getResourceURL(id));
+  delete(id: number): Observable<void>;
+  delete(url: string): Observable<void>;
+
+  delete(idOrUrl: number | string): Observable<void> {
+    if (!isNaN(parseInt(idOrUrl.toString()))) {
+      return this.http.delete<void>(this.getResourceURL(idOrUrl));
+    }
+
+    return this.http.delete<void>(idOrUrl as string);
   }
 }
